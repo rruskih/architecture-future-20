@@ -1,0 +1,130 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.3.0 Chrome/140.0.7339.249 Electron/38.7.2 Safari/537.36" version="29.3.0">
+  <diagram name="Infrastructure Deployment Automation" id="terraform-infrastructure">
+    <mxGraphModel dx="2946" dy="1201" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2000" pageHeight="1400" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1" value="Диаграмма автоматизации развёртывания инфраструктуры" vertex="1">
+          <mxGeometry height="40" width="800" x="550" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1" value="Легенда:" vertex="1">
+          <mxGeometry height="30" width="200" x="40" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-terraform" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=none;fontSize=12;shadow=1;" value="Управляется Terraform" vertex="1">
+          <mxGeometry height="40" width="200" x="40" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-manual" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=none;fontSize=12;shadow=1;" value="Разворачивается вручную" vertex="1">
+          <mxGeometry height="40" width="200" x="40" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="vpc" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3EBFF;strokeColor=none;fontSize=12;fontStyle=1;arcSize=3;shadow=1;verticalAlign=top;" value="VPC Network&#xa;10.0.0.0/16&#xa;(Terraform)" vertex="1">
+          <mxGeometry height="960" width="1120" x="360" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="y6cLhYAYH5voTTtrxiuZ-4" edge="1" parent="1" source="nat-gateway" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="public-subnet">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nat-gateway" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=none;fontSize=12;fontStyle=0;shadow=1;" value="NAT Gateway&#xa;(Terraform)" vertex="1">
+          <mxGeometry height="60" width="200" x="410" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="public-subnet" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=none;fontSize=11;shadow=1;" value="Public Subnet&#xa;10.0.1.0/24&#xa;(Terraform)" vertex="1">
+          <mxGeometry height="80" width="200" x="410" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="medical-subnet" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=none;fontSize=11;shadow=1;" value="Medical Subnet&#xa;10.0.2.0/24&#xa;(Terraform)" vertex="1">
+          <mxGeometry height="80" width="200" x="700" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="medical-vm" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=none;fontSize=10;shadow=1;" value="VM: medical-db&#xa;4 vCPU, 8 GB RAM&#xa;50 GB Disk (SSD)&#xa;(Terraform)" vertex="1">
+          <mxGeometry height="100" width="200" x="700" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="y6cLhYAYH5voTTtrxiuZ-6" edge="1" parent="1" source="medical-db-app" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#D6B656;" target="medical-vm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="medical-db-app" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=none;fontSize=10;shadow=1;" value="PostgreSQL&#xa;(Ручная установка)" vertex="1">
+          <mxGeometry height="60" width="200" x="700" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="fintech-subnet" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=none;fontSize=11;shadow=1;" value="Fintech Subnet&#xa;10.0.3.0/24&#xa;(Terraform)" vertex="1">
+          <mxGeometry height="80" width="200" x="950" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="fintech-vm" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=none;fontSize=10;shadow=1;" value="VM: fintech-db&#xa;4 vCPU, 8 GB RAM&#xa;50 GB Disk (SSD)&#xa;(Terraform)" vertex="1">
+          <mxGeometry height="100" width="200" x="950" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="y6cLhYAYH5voTTtrxiuZ-7" edge="1" parent="1" source="fintech-db-app" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#D6B656;" target="fintech-vm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fintech-db-app" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=none;fontSize=10;shadow=1;" value="PostgreSQL&#xa;(Ручная установка)" vertex="1">
+          <mxGeometry height="60" width="200" x="950" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="y6cLhYAYH5voTTtrxiuZ-5" edge="1" parent="1" source="ai-subnet" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;dashed=1;" target="ai-vm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ai-subnet" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=none;fontSize=11;shadow=1;" value="AI Services Subnet&#xa;10.0.4.0/24&#xa;(Terraform)" vertex="1">
+          <mxGeometry height="80" width="200" x="700" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="ai-vm" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=none;fontSize=10;shadow=1;" value="VM: ai-services&#xa;8 vCPU, 16 GB RAM&#xa;100 GB Disk (SSD)&#xa;(Terraform)" vertex="1">
+          <mxGeometry height="100" width="200" x="700" y="820" as="geometry" />
+        </mxCell>
+        <mxCell id="y6cLhYAYH5voTTtrxiuZ-2" edge="1" parent="1" source="ai-app" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#D6B656;" target="ai-vm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ai-app" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=none;fontSize=10;shadow=1;" value="Python ML Services&#xa;(Ручная установка)" vertex="1">
+          <mxGeometry height="60" width="200" x="700" y="980" as="geometry" />
+        </mxCell>
+        <mxCell id="analytics-subnet" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=none;fontSize=11;shadow=1;" value="Analytics Subnet&#xa;10.0.5.0/24&#xa;(Terraform)" vertex="1">
+          <mxGeometry height="80" width="200" x="950" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="analytics-vm" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=none;fontSize=10;shadow=1;" value="VM: analytics&#xa;8 vCPU, 32 GB RAM&#xa;200 GB Disk (SSD)&#xa;(Terraform)" vertex="1">
+          <mxGeometry height="100" width="200" x="950" y="820" as="geometry" />
+        </mxCell>
+        <mxCell id="y6cLhYAYH5voTTtrxiuZ-3" edge="1" parent="1" source="analytics-app" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#D6B656;" target="analytics-vm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="analytics-app" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=none;fontSize=10;shadow=1;" value="Data Warehouse&#xa;Analytics Engine&#xa;(Ручная установка)" vertex="1">
+          <mxGeometry height="60" width="200" x="950" y="980" as="geometry" />
+        </mxCell>
+        <mxCell id="shared-subnet" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=none;fontSize=11;shadow=1;" value="Shared Services Subnet&#xa;10.0.6.0/24&#xa;(Terraform)" vertex="1">
+          <mxGeometry height="80" width="200" x="1220" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="shared-vm" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=none;fontSize=10;shadow=1;" value="VM: shared-services&#xa;2 vCPU, 4 GB RAM&#xa;30 GB Disk (SSD)&#xa;(Terraform)" vertex="1">
+          <mxGeometry height="100" width="200" x="1220" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="y6cLhYAYH5voTTtrxiuZ-8" edge="1" parent="1" source="shared-app" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#D6B656;" target="shared-vm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="shared-app" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=none;fontSize=10;shadow=1;" value="API Gateway&#xa;Identity Provider&#xa;(Ручная установка)" vertex="1">
+          <mxGeometry height="60" width="200" x="1220" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="sg-title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1" value="Security Groups (Terraform):" vertex="1">
+          <mxGeometry height="30" width="250" x="560" y="1100" as="geometry" />
+        </mxCell>
+        <mxCell id="sg-medical" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=none;fontSize=10;shadow=1;" value="medical-sg" vertex="1">
+          <mxGeometry height="40" width="120" x="560" y="1140" as="geometry" />
+        </mxCell>
+        <mxCell id="sg-fintech" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=none;fontSize=10;shadow=1;" value="fintech-sg" vertex="1">
+          <mxGeometry height="40" width="120" x="710" y="1140" as="geometry" />
+        </mxCell>
+        <mxCell id="sg-ai" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=none;fontSize=10;shadow=1;" value="ai-services-sg" vertex="1">
+          <mxGeometry height="40" width="120" x="860" y="1140" as="geometry" />
+        </mxCell>
+        <mxCell id="sg-analytics" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=none;fontSize=10;shadow=1;" value="analytics-sg" vertex="1">
+          <mxGeometry height="40" width="120" x="1010" y="1140" as="geometry" />
+        </mxCell>
+        <mxCell id="sg-shared" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=none;fontSize=10;shadow=1;" value="shared-services-sg" vertex="1">
+          <mxGeometry height="40" width="120" x="1160" y="1140" as="geometry" />
+        </mxCell>
+        <mxCell id="conn-medical-vm-subnet" edge="1" parent="1" source="medical-vm" style="endArrow=none;html=1;rounded=0;strokeWidth=1;strokeColor=#666666;dashed=1" target="medical-subnet" vertex="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="conn-fintech-vm-subnet" edge="1" parent="1" source="fintech-vm" style="endArrow=none;html=1;rounded=0;strokeWidth=1;strokeColor=#666666;dashed=1" target="fintech-subnet" vertex="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="conn-analytics-vm-subnet" edge="1" parent="1" source="analytics-vm" style="endArrow=none;html=1;rounded=0;strokeWidth=1;strokeColor=#666666;dashed=1" target="analytics-subnet" vertex="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="conn-shared-vm-subnet" edge="1" parent="1" source="shared-vm" style="endArrow=none;html=1;rounded=0;strokeWidth=1;strokeColor=#666666;dashed=1" target="shared-subnet" vertex="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="y6cLhYAYH5voTTtrxiuZ-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;autosize=1;resizable=0;" value="&lt;span style=&quot;font-size: 11px; text-align: left;&quot;&gt;&lt;b&gt;Примечание:&lt;/b&gt; Приложения, конфигурации БД, мониторинг, логирование,&lt;/span&gt;&lt;br style=&quot;font-size: 11px; text-align: left;&quot;&gt;&lt;span style=&quot;font-size: 11px; text-align: left;&quot;&gt;SSL сертификаты и политики резервного копирования настраиваются вручную&lt;/span&gt;" vertex="1">
+          <mxGeometry height="40" width="430" x="705" y="1240" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

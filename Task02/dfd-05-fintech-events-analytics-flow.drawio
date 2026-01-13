@@ -1,0 +1,105 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.3.0 Chrome/140.0.7339.249 Electron/38.7.2 Safari/537.36" version="29.3.0">
+  <diagram name="DFD 5: Fintech Domain → Event Bus → Analytics" id="dfd-fintech-events-analytics">
+    <mxGraphModel dx="2946" dy="1201" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1200" background="none" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1" value="DFD 5: Поток данных - fintech-domain-services → event-driven-integration-hub → analytics-engine" vertex="1">
+          <mxGeometry height="40" width="900" x="200" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="description" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontSize=10" value="Описание: Fintech Services публикует события о финансовых операциях (транзакции, создание счетов) в Event Bus.&#xa;Analytics Engine подписывается на события, сохраняет сырые данные в Data Lake, выполняет ETL процессы&#xa;и создаёт агрегированные витрины данных (Fintech Data Mart) для быстрого доступа к финансовой аналитике." vertex="1">
+          <mxGeometry height="80" width="1100" x="200" y="750" as="geometry" />
+        </mxCell>
+        <mxCell id="wXegb4Emc_E7F9JR6dCk-17" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#23A2D9;strokeColor=#0E7DAD;fontColor=#ffffff;fontSize=11" value="3.0&lt;br&gt;&lt;span style=&quot;font-size: 12px; text-align: left;&quot;&gt;&lt;font style=&quot;color: rgb(255, 255, 255);&quot;&gt;fintech-domain-services&lt;/font&gt;&lt;/span&gt;" vertex="1">
+          <mxGeometry height="80" width="200" x="130" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="wXegb4Emc_E7F9JR6dCk-18" edge="1" parent="1" source="wXegb4Emc_E7F9JR6dCk-27" style="endArrow=block;html=1;rounded=0;strokeWidth=1;strokeColor=#23A2D9;fontSize=9;edgeStyle=orthogonalEdgeStyle;" target="wXegb4Emc_E7F9JR6dCk-17" value="Чтение">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="170" y="520" />
+              <mxPoint x="170" y="520" />
+            </Array>
+            <mxPoint x="260" y="580" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wXegb4Emc_E7F9JR6dCk-19" edge="1" parent="1" source="wXegb4Emc_E7F9JR6dCk-17" style="endArrow=block;html=1;rounded=0;strokeWidth=1;strokeColor=#82B366;fontSize=9;edgeStyle=orthogonalEdgeStyle;" target="wXegb4Emc_E7F9JR6dCk-27" value="Запись">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="290" y="520" />
+              <mxPoint x="290" y="520" />
+            </Array>
+            <mxPoint x="260" y="580" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wXegb4Emc_E7F9JR6dCk-20" edge="1" parent="1" source="wXegb4Emc_E7F9JR6dCk-17" style="endArrow=block;html=1;rounded=1;strokeWidth=1;strokeColor=#23A2D9;fontSize=9;curved=0;dashed=1;" target="wXegb4Emc_E7F9JR6dCk-29" value="События:&lt;br&gt;TransactionCompleted,&lt;br&gt;AccountCreated">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="530" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wXegb4Emc_E7F9JR6dCk-21" edge="1" parent="1" source="wXegb4Emc_E7F9JR6dCk-29" style="endArrow=block;html=1;rounded=0;strokeWidth=1;strokeColor=#FF9933;fontSize=9;edgeStyle=orthogonalEdgeStyle;dashed=1;" target="wXegb4Emc_E7F9JR6dCk-30" value="Подписка на события">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="900" y="420" />
+              <mxPoint x="900" y="420" />
+            </Array>
+            <mxPoint x="770" y="270" as="sourcePoint" />
+            <mxPoint x="970" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wXegb4Emc_E7F9JR6dCk-22" edge="1" parent="1" source="wXegb4Emc_E7F9JR6dCk-30" style="endArrow=block;html=1;rounded=0;strokeWidth=1;strokeColor=#FF9933;fontSize=9;edgeStyle=orthogonalEdgeStyle;" target="wXegb4Emc_E7F9JR6dCk-31" value="Сырые данные">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1090" y="490" />
+              <mxPoint x="1090" y="490" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wXegb4Emc_E7F9JR6dCk-23" edge="1" parent="1" source="wXegb4Emc_E7F9JR6dCk-31" style="endArrow=block;html=1;rounded=0;strokeWidth=1;strokeColor=#FF9933;fontSize=9;edgeStyle=orthogonalEdgeStyle;" target="wXegb4Emc_E7F9JR6dCk-30" value="ETL процессы">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="970" y="530" />
+              <mxPoint x="970" y="530" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wXegb4Emc_E7F9JR6dCk-24" edge="1" parent="1" source="wXegb4Emc_E7F9JR6dCk-30" style="endArrow=block;html=1;rounded=0;strokeWidth=1;strokeColor=#FF9933;fontSize=9;edgeStyle=orthogonalEdgeStyle;" target="wXegb4Emc_E7F9JR6dCk-32" value="Агрегированные&lt;div&gt;данные&lt;/div&gt;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1230" y="440" />
+              <mxPoint x="1230" y="440" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wXegb4Emc_E7F9JR6dCk-25" edge="1" parent="1" source="wXegb4Emc_E7F9JR6dCk-32" style="endArrow=block;html=1;rounded=0;strokeWidth=1;strokeColor=#FF9933;fontSize=9;edgeStyle=orthogonalEdgeStyle;" target="wXegb4Emc_E7F9JR6dCk-30" value="Чтение&lt;div&gt;витрины&lt;/div&gt;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1240" y="400" />
+              <mxPoint x="1240" y="400" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wXegb4Emc_E7F9JR6dCk-26" connectable="0" parent="1" style="group" value="" vertex="1">
+          <mxGeometry height="100" width="220" x="120" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="wXegb4Emc_E7F9JR6dCk-27" parent="wXegb4Emc_E7F9JR6dCk-26" style="html=1;dashed=0;whiteSpace=wrap;shape=mxgraph.dfd.dataStoreID;align=left;spacingLeft=3;points=[[0,0],[0.5,0],[1,0],[0,0.5],[1,0.5],[0,1],[0.5,1],[1,1]];strokeColor=#23A2D9;" value="D2" vertex="1">
+          <mxGeometry height="100" width="220" as="geometry" />
+        </mxCell>
+        <mxCell id="wXegb4Emc_E7F9JR6dCk-28" parent="wXegb4Emc_E7F9JR6dCk-26" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;" value="fintech-domain-db" vertex="1">
+          <mxGeometry height="100" width="140" x="40" as="geometry" />
+        </mxCell>
+        <mxCell id="wXegb4Emc_E7F9JR6dCk-29" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#23A2D9;strokeColor=#23A2D9;fontColor=#ffffff;fontSize=11" value="5.0&lt;br&gt;&lt;span style=&quot;font-size: 12px; text-align: left;&quot;&gt;&lt;font style=&quot;color: rgb(255, 255, 255);&quot;&gt;event-driven-integration-hub&lt;/font&gt;&lt;/span&gt;" vertex="1">
+          <mxGeometry height="80" width="200" x="530" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="wXegb4Emc_E7F9JR6dCk-30" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF9933;strokeColor=#CC6600;fontColor=#ffffff;fontSize=11" value="6.0&lt;br&gt;&lt;span style=&quot;font-size: 12px; text-align: left;&quot;&gt;&lt;font style=&quot;color: rgb(255, 255, 255);&quot;&gt;analytics-engine&lt;/font&gt;&lt;/span&gt;" vertex="1">
+          <mxGeometry height="80" width="200" x="930" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="wXegb4Emc_E7F9JR6dCk-31" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF9933;strokeColor=#CC6600;fontColor=#ffffff;fontSize=11" value="7.0&lt;br&gt;&lt;span style=&quot;font-size: 12px; text-align: left;&quot;&gt;&lt;font style=&quot;color: rgb(255, 255, 255);&quot;&gt;data-lake&lt;/font&gt;&lt;/span&gt;" vertex="1">
+          <mxGeometry height="80" width="200" x="930" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="wXegb4Emc_E7F9JR6dCk-32" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF9933;strokeColor=#CC6600;fontColor=#ffffff;fontSize=11" value="8.0&lt;br&gt;&lt;span style=&quot;font-size: 12px; text-align: left;&quot;&gt;&lt;font style=&quot;color: rgb(255, 255, 255);&quot;&gt;data-mart&lt;/font&gt;&lt;/span&gt;" vertex="1">
+          <mxGeometry height="80" width="200" x="1330" y="380" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

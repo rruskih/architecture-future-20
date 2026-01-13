@@ -1,0 +1,105 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.3.0 Chrome/140.0.7339.249 Electron/38.7.2 Safari/537.36" version="29.3.0">
+  <diagram name="DFD 4: Medical Domain → Event Bus → Analytics" id="dfd-medical-events-analytics">
+    <mxGraphModel dx="2946" dy="1201" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1200" background="none" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="process-medical" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#23A2D9;strokeColor=#0E7DAD;fontColor=#ffffff;fontSize=11" value="2.0&lt;br&gt;&lt;span style=&quot;font-size: 12px; text-align: left;&quot;&gt;&lt;font style=&quot;color: rgb(255, 255, 255);&quot;&gt;medical-domain-services&lt;/font&gt;&lt;/span&gt;" vertex="1">
+          <mxGeometry height="80" width="200" x="160" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="flow-medical-db-read" edge="1" parent="1" source="WREXPJxnLYoy22C111Jl-2" style="endArrow=block;html=1;rounded=0;strokeWidth=1;strokeColor=#23A2D9;fontSize=9;edgeStyle=orthogonalEdgeStyle;" target="process-medical" value="Чтение">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="200" y="540" />
+              <mxPoint x="200" y="540" />
+            </Array>
+            <mxPoint x="290" y="600" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-medical-db-write" edge="1" parent="1" source="process-medical" style="endArrow=block;html=1;rounded=0;strokeWidth=1;strokeColor=#82B366;fontSize=9;edgeStyle=orthogonalEdgeStyle;" target="WREXPJxnLYoy22C111Jl-2" value="Запись">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="320" y="540" />
+              <mxPoint x="320" y="540" />
+            </Array>
+            <mxPoint x="290" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-medical-events" edge="1" parent="1" source="process-medical" style="endArrow=block;html=1;rounded=1;strokeWidth=1;strokeColor=#23A2D9;fontSize=9;curved=0;dashed=1;" target="WREXPJxnLYoy22C111Jl-4" value="События:&#xa;AppointmentCreated,&#xa;DiagnosisUpdated">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="560" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-events-analytics" edge="1" parent="1" source="WREXPJxnLYoy22C111Jl-4" style="endArrow=block;html=1;rounded=0;strokeWidth=1;strokeColor=#FF9933;fontSize=9;edgeStyle=orthogonalEdgeStyle;dashed=1;" target="WREXPJxnLYoy22C111Jl-8" value="Подписка на события">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="930" y="440" />
+              <mxPoint x="930" y="440" />
+            </Array>
+            <mxPoint x="800" y="290" as="sourcePoint" />
+            <mxPoint x="1000" y="290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-analytics-lake" edge="1" parent="1" source="WREXPJxnLYoy22C111Jl-8" style="endArrow=block;html=1;rounded=0;strokeWidth=1;strokeColor=#FF9933;fontSize=9;edgeStyle=orthogonalEdgeStyle;" target="WREXPJxnLYoy22C111Jl-9" value="Сырые данные">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1120" y="510" />
+              <mxPoint x="1120" y="510" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-lake-analytics" edge="1" parent="1" source="WREXPJxnLYoy22C111Jl-9" style="endArrow=block;html=1;rounded=0;strokeWidth=1;strokeColor=#FF9933;fontSize=9;edgeStyle=orthogonalEdgeStyle;" target="WREXPJxnLYoy22C111Jl-8" value="ETL процессы">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1000" y="550" />
+              <mxPoint x="1000" y="550" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-analytics-mart" edge="1" parent="1" source="WREXPJxnLYoy22C111Jl-8" style="endArrow=block;html=1;rounded=0;strokeWidth=1;strokeColor=#FF9933;fontSize=9;edgeStyle=orthogonalEdgeStyle;" target="WREXPJxnLYoy22C111Jl-10" value="Агрегированные&lt;div&gt;данные&lt;/div&gt;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1260" y="460" />
+              <mxPoint x="1260" y="460" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-mart-analytics" edge="1" parent="1" source="WREXPJxnLYoy22C111Jl-10" style="endArrow=block;html=1;rounded=0;strokeWidth=1;strokeColor=#FF9933;fontSize=9;edgeStyle=orthogonalEdgeStyle;" target="WREXPJxnLYoy22C111Jl-8" value="Чтение&lt;div&gt;витрины&lt;/div&gt;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1270" y="420" />
+              <mxPoint x="1270" y="420" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1" value="DFD 4: Поток данных - medical-domain-services → event-driven-integration-hub → analytics-engine" vertex="1">
+          <mxGeometry height="40" width="850" x="200" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="description" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontSize=10" value="&lt;b&gt;Описание:&lt;/b&gt; medical-domain-services публикует события о важных бизнес-событиях (приём, диагноз) в event-driven-integration-hub.&lt;br&gt;analytics-engine подписывается на события, сохраняет сырые данные в datalake, выполняет ETL процессы&lt;br&gt;и создаёт агрегированные витрины данных data-mart для быстрого доступа к аналитике." vertex="1">
+          <mxGeometry height="80" width="1100" x="210" y="750" as="geometry" />
+        </mxCell>
+        <mxCell id="WREXPJxnLYoy22C111Jl-1" connectable="0" parent="1" style="group" value="" vertex="1">
+          <mxGeometry height="100" width="220" x="150" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="WREXPJxnLYoy22C111Jl-2" parent="WREXPJxnLYoy22C111Jl-1" style="html=1;dashed=0;whiteSpace=wrap;shape=mxgraph.dfd.dataStoreID;align=left;spacingLeft=3;points=[[0,0],[0.5,0],[1,0],[0,0.5],[1,0.5],[0,1],[0.5,1],[1,1]];strokeColor=#23A2D9;" value="D1" vertex="1">
+          <mxGeometry height="100" width="220" as="geometry" />
+        </mxCell>
+        <mxCell id="WREXPJxnLYoy22C111Jl-3" parent="WREXPJxnLYoy22C111Jl-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;" value="medical-domain-db" vertex="1">
+          <mxGeometry height="100" width="140" x="40" as="geometry" />
+        </mxCell>
+        <mxCell id="WREXPJxnLYoy22C111Jl-4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#23A2D9;strokeColor=#23A2D9;fontColor=#ffffff;fontSize=11" value="5.0&lt;br&gt;&lt;span style=&quot;font-size: 12px; text-align: left;&quot;&gt;&lt;font style=&quot;color: rgb(255, 255, 255);&quot;&gt;event-driven-integration-hub&lt;/font&gt;&lt;/span&gt;" vertex="1">
+          <mxGeometry height="80" width="200" x="560" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="WREXPJxnLYoy22C111Jl-8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF9933;strokeColor=#CC6600;fontColor=#ffffff;fontSize=11" value="6.0&lt;br&gt;&lt;span style=&quot;font-size: 12px; text-align: left;&quot;&gt;&lt;font style=&quot;color: rgb(255, 255, 255);&quot;&gt;analytics-engine&lt;/font&gt;&lt;/span&gt;" vertex="1">
+          <mxGeometry height="80" width="200" x="960" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="WREXPJxnLYoy22C111Jl-9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF9933;strokeColor=#CC6600;fontColor=#ffffff;fontSize=11" value="7.0&lt;br&gt;&lt;span style=&quot;font-size: 12px; text-align: left;&quot;&gt;&lt;font style=&quot;color: rgb(255, 255, 255);&quot;&gt;data-lake&lt;/font&gt;&lt;/span&gt;" vertex="1">
+          <mxGeometry height="80" width="200" x="960" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="WREXPJxnLYoy22C111Jl-10" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF9933;strokeColor=#CC6600;fontColor=#ffffff;fontSize=11" value="8.0&lt;br&gt;&lt;span style=&quot;font-size: 12px; text-align: left;&quot;&gt;&lt;font style=&quot;color: rgb(255, 255, 255);&quot;&gt;data-mart&lt;/font&gt;&lt;/span&gt;" vertex="1">
+          <mxGeometry height="80" width="200" x="1360" y="400" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
