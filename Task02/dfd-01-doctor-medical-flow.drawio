@@ -1,0 +1,95 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.3.0 Chrome/140.0.7339.249 Electron/38.7.2 Safari/537.36" version="29.3.0">
+  <diagram name="DFD 1: Врач → Medical Domain" id="dfd-doctor-medical">
+    <mxGraphModel dx="2946" dy="1201" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1200" background="none" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="process-api" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#23A2D9;strokeColor=#0E7DAD;fontColor=#ffffff;fontSize=11;fontStyle=1" value="1.0&lt;br&gt;future-api-gateway" vertex="1">
+          <mxGeometry height="80" width="200" x="480" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="process-services" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#23A2D9;strokeColor=#0E7DAD;fontColor=#ffffff;fontSize=11" value="2.0&lt;br&gt;medical-domain-services" vertex="1">
+          <mxGeometry height="80" width="200" x="480" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="flow-request" edge="1" parent="1" source="hzfN2jLBLqKNRl20ouHn-4" style="endArrow=block;html=1;rounded=0;strokeWidth=1;strokeColor=#82B366;fontSize=10;edgeStyle=orthogonalEdgeStyle;" target="process-api" value="Запрос&lt;div&gt;медицинских&lt;br&gt;данных&lt;/div&gt;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="350" y="320" />
+              <mxPoint x="350" y="320" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-response" edge="1" parent="1" source="process-api" style="endArrow=block;html=1;rounded=1;strokeWidth=1;strokeColor=#82B366;fontSize=10;edgeStyle=orthogonalEdgeStyle;" target="hzfN2jLBLqKNRl20ouHn-4" value="Медицинские&lt;div&gt;данные&lt;/div&gt;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="340" y="360" />
+              <mxPoint x="340" y="360" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-api-services" edge="1" parent="1" source="process-api" style="endArrow=block;html=1;rounded=0;strokeWidth=1;strokeColor=#23A2D9;fontSize=9;edgeStyle=orthogonalEdgeStyle;" target="process-services" value="Запрос">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="640" y="410" />
+              <mxPoint x="640" y="410" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-services-api" edge="1" parent="1" source="process-services" style="endArrow=block;html=1;rounded=0;strokeWidth=1;strokeColor=#23A2D9;fontSize=9;edgeStyle=orthogonalEdgeStyle;" target="process-api" value="Данные">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="520" y="440" />
+              <mxPoint x="520" y="440" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-services-db-read" edge="1" parent="1" source="hzfN2jLBLqKNRl20ouHn-2" style="endArrow=block;html=1;rounded=0;strokeWidth=1;strokeColor=#23A2D9;fontSize=9;edgeStyle=orthogonalEdgeStyle;" target="process-services" value="Чтение">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="520" y="590" />
+              <mxPoint x="520" y="590" />
+            </Array>
+            <mxPoint x="590" y="620" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-services-db-write" edge="1" parent="1" source="process-services" style="endArrow=block;html=1;rounded=0;strokeWidth=1;strokeColor=#23A2D9;fontSize=9;edgeStyle=orthogonalEdgeStyle;" target="hzfN2jLBLqKNRl20ouHn-2" value="Запись">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="640" y="600" />
+              <mxPoint x="640" y="600" />
+            </Array>
+            <mxPoint x="750" y="580" as="sourcePoint" />
+            <mxPoint x="790" y="650" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1" value="DFD 01: Поток данных - Врач → medical-domain-services" vertex="1">
+          <mxGeometry height="40" width="500" x="400" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="description" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontSize=10" value="&lt;b&gt;Описание:&lt;/b&gt; Врач запрашивает медицинские данные пациента через future-api-gateway.&lt;br&gt;Сервисы обращаются к medical-domain-db для получения полной информации." vertex="1">
+          <mxGeometry height="60" width="700" x="280" y="770" as="geometry" />
+        </mxCell>
+        <mxCell id="hzfN2jLBLqKNRl20ouHn-1" connectable="0" parent="1" style="group" value="" vertex="1">
+          <mxGeometry height="100" width="220" x="470" y="630" as="geometry" />
+        </mxCell>
+        <mxCell id="hzfN2jLBLqKNRl20ouHn-2" parent="hzfN2jLBLqKNRl20ouHn-1" style="html=1;dashed=0;whiteSpace=wrap;shape=mxgraph.dfd.dataStoreID;align=left;spacingLeft=3;points=[[0,0],[0.5,0],[1,0],[0,0.5],[1,0.5],[0,1],[0.5,1],[1,1]];strokeColor=#23A2D9;" value="D1" vertex="1">
+          <mxGeometry height="100" width="220" as="geometry" />
+        </mxCell>
+        <mxCell id="hzfN2jLBLqKNRl20ouHn-3" parent="hzfN2jLBLqKNRl20ouHn-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;" value="medical-domain-db" vertex="1">
+          <mxGeometry height="100" width="140" x="40" as="geometry" />
+        </mxCell>
+        <mxCell id="hzfN2jLBLqKNRl20ouHn-4" parent="1" style="html=1;dashed=0;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;" value="Врач" vertex="1">
+          <mxGeometry height="80" width="200" x="80" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="hzfN2jLBLqKNRl20ouHn-5" edge="1" parent="1" source="process-services" style="endArrow=block;html=1;rounded=0;strokeWidth=1;strokeColor=#23A2D9;fontSize=9;edgeStyle=orthogonalEdgeStyle;dashed=1;" target="A6IxAelEuf8-UAQJH0VE-1" value="Публикация&lt;div&gt;события&lt;/div&gt;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+            <mxPoint x="840" y="610" as="sourcePoint" />
+            <mxPoint x="880" y="500" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="A6IxAelEuf8-UAQJH0VE-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#23A2D9;strokeColor=#0E7DAD;fontSize=11;fontStyle=1" value="&lt;font style=&quot;color: rgb(255, 255, 255);&quot;&gt;event-driven-integration-hub&lt;/font&gt;" vertex="1">
+          <mxGeometry height="80" width="200" x="880" y="460" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

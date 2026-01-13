@@ -1,0 +1,99 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.3.0 Chrome/140.0.7339.249 Electron/38.7.2 Safari/537.36" version="29.3.0">
+  <diagram name="DFD 3: Medical Domain → AI Services" id="dfd-medical-ai">
+    <mxGraphModel dx="2946" dy="1201" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1200" background="none" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="process-medical" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#23A2D9;strokeColor=#0E7DAD;fontColor=#ffffff;fontSize=11" value="2.0&lt;br&gt;medical-domain-services" vertex="1">
+          <mxGeometry height="80" width="200" x="120" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="process-ai-services" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#23A2D9;strokeColor=#006600;fontColor=#ffffff;fontSize=11" value="4.0&lt;br&gt;ai-domain-services" vertex="1">
+          <mxGeometry height="80" width="200" x="920" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="flow-medical-ai-request" edge="1" parent="1" source="process-medical" style="endArrow=block;html=1;rounded=0;strokeWidth=1;strokeColor=#23A2D9;fontSize=10;edgeStyle=orthogonalEdgeStyle;" target="GnplbGSasDjWjZ9dpKVd-2" value="Запрос анализа&#xa;медицинских данных">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="430" y="380" />
+              <mxPoint x="430" y="380" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-ai-api-services" edge="1" parent="1" source="GnplbGSasDjWjZ9dpKVd-2" style="endArrow=block;html=1;rounded=0;strokeWidth=1;strokeColor=#23A2D9;fontSize=9;edgeStyle=orthogonalEdgeStyle;" target="process-ai-services" value="Запрос">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="820" y="380" />
+              <mxPoint x="820" y="380" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-ai-services-models-read" edge="1" parent="1" source="GnplbGSasDjWjZ9dpKVd-7" style="endArrow=block;html=1;rounded=0;strokeWidth=1;strokeColor=#23A2D9;fontSize=9;edgeStyle=orthogonalEdgeStyle;" target="process-ai-services" value="Загрузка модели">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+            <mxPoint x="1000" y="560" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-ai-services-api" edge="1" parent="1" source="process-ai-services" style="endArrow=block;html=1;rounded=0;strokeWidth=1;strokeColor=#23A2D9;fontSize=9;edgeStyle=orthogonalEdgeStyle;" target="GnplbGSasDjWjZ9dpKVd-2" value="Результаты анализа">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="830" y="340" />
+              <mxPoint x="830" y="340" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-ai-medical-response" edge="1" parent="1" source="GnplbGSasDjWjZ9dpKVd-2" style="endArrow=block;html=1;rounded=0;strokeWidth=1;strokeColor=#23A2D9;fontSize=10;edgeStyle=orthogonalEdgeStyle;" target="process-medical" value="Рекомендации ИИ">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="440" y="340" />
+              <mxPoint x="440" y="340" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-medical-db-read" edge="1" parent="1" source="GnplbGSasDjWjZ9dpKVd-4" style="endArrow=block;html=1;rounded=0;strokeWidth=1;strokeColor=#23A2D9;fontSize=9;edgeStyle=orthogonalEdgeStyle;" target="process-medical" value="Чтение данных">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="160" y="480" />
+              <mxPoint x="160" y="480" />
+            </Array>
+            <mxPoint x="240" y="520" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow-medical-db-write" edge="1" parent="1" source="process-medical" style="endArrow=block;html=1;rounded=0;strokeWidth=1;strokeColor=#23A2D9;fontSize=9;edgeStyle=orthogonalEdgeStyle;" target="GnplbGSasDjWjZ9dpKVd-4" value="Обновление с&#xa;рекомендациями">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="280" y="480" />
+              <mxPoint x="280" y="480" />
+            </Array>
+            <mxPoint x="240" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1" value="DFD 3: Поток данных - medical-domain-services → ai-domain-services" vertex="1">
+          <mxGeometry height="40" width="620" x="200" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="description" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontSize=10" value="&lt;b&gt;Описание:&lt;/b&gt; medical-domain-services запрашивает анализ медицинских данных у ai-domain-services.&lt;br&gt;ai-domain-services загружает модель из хранилища, обрабатывает данные и возвращает рекомендации.&lt;br&gt;medical-domain-services обновляет данные в medical-domain-db с учётом рекомендаций ИИ." vertex="1">
+          <mxGeometry height="80" width="500" x="200" y="750" as="geometry" />
+        </mxCell>
+        <mxCell id="GnplbGSasDjWjZ9dpKVd-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#23A2D9;strokeColor=#0E7DAD;fontColor=#ffffff;fontSize=11;fontStyle=1" value="1.0&lt;br&gt;future-api-gateway" vertex="1">
+          <mxGeometry height="80" width="200" x="520" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="GnplbGSasDjWjZ9dpKVd-3" connectable="0" parent="1" style="group" value="" vertex="1">
+          <mxGeometry height="100" width="220" x="110" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="GnplbGSasDjWjZ9dpKVd-4" parent="GnplbGSasDjWjZ9dpKVd-3" style="html=1;dashed=0;whiteSpace=wrap;shape=mxgraph.dfd.dataStoreID;align=left;spacingLeft=3;points=[[0,0],[0.5,0],[1,0],[0,0.5],[1,0.5],[0,1],[0.5,1],[1,1]];strokeColor=#23A2D9;" value="D1" vertex="1">
+          <mxGeometry height="100" width="220" as="geometry" />
+        </mxCell>
+        <mxCell id="GnplbGSasDjWjZ9dpKVd-5" parent="GnplbGSasDjWjZ9dpKVd-3" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;" value="medical-domain-db" vertex="1">
+          <mxGeometry height="100" width="140" x="40" as="geometry" />
+        </mxCell>
+        <mxCell id="GnplbGSasDjWjZ9dpKVd-6" connectable="0" parent="1" style="group" value="" vertex="1">
+          <mxGeometry height="100" width="220" x="910" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="GnplbGSasDjWjZ9dpKVd-7" parent="GnplbGSasDjWjZ9dpKVd-6" style="html=1;dashed=0;whiteSpace=wrap;shape=mxgraph.dfd.dataStoreID;align=left;spacingLeft=3;points=[[0,0],[0.5,0],[1,0],[0,0.5],[1,0.5],[0,1],[0.5,1],[1,1]];strokeColor=#23A2D9;" value="D3" vertex="1">
+          <mxGeometry height="100" width="220" as="geometry" />
+        </mxCell>
+        <mxCell id="GnplbGSasDjWjZ9dpKVd-8" parent="GnplbGSasDjWjZ9dpKVd-6" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;" value="ai-domain-db" vertex="1">
+          <mxGeometry height="100" width="140" x="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
